@@ -84,4 +84,51 @@ export const storageService = {
       localStorage.setItem(STORAGE_KEYS.GAMES, JSON.stringify(data.games));
     }
   },
+
+  // Merge imported players with existing players (deduplication by name)
+  importPlayers: (importedPlayers) => {
+    const existingPlayers = storageService.getPlayers();
+    const existingNames = new Set(existingPlayers.map(p => p.name.toLowerCase()));
+    
+    // Filter out duplicates
+    const newPlayers = importedPlayers.filter(
+      ip => !existingNames.has(ip.name.toLowerCase())
+    );
+
+    // Combine and save
+    const allPlayers = [...existingPlayers, ...newPlayers];
+    localStorage.setItem(STORAGE_KEYS.PLAYERS, JSON.stringify(allPlayers));
+    
+    return {
+      imported: newPlayers.length,
+      duplicates: importedPlayers.length - newPlayers.length,
+      total: allPlayers.length,
+    };
+  },
+
+  // Merge imported games with existing games (deduplication by date, players, and winner)
+  importGames: (importedGames) => {
+    const existingGames = storageService.getGames();
+    
+    // Create a set of existing game signatures for deduplication
+    const existingSignatures = new Set(
+      existingGames.map(g => `${g.player1Id}_${g.player2Id}_${g.winnerId}_${g.date}`)
+    );
+
+    // Filter out duplicates
+    const newGames = importedGames.filter(ig => {
+      const signature = `${ig.player1Id}_${ig.player2Id}_${ig.winnerId}_${ig.date}`;
+      return !existingSignatures.has(signature);
+    });
+
+    // Combine and save
+    const allGames = [...existingGames, ...newGames];
+    localStorage.setItem(STORAGE_KEYS.GAMES, JSON.stringify(allGames));
+
+    return {
+      imported: newGames.length,
+      duplicates: importedGames.length - newGames.length,
+      total: allGames.length,
+    };
+  },
 };

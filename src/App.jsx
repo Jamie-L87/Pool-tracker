@@ -41,6 +41,29 @@ function App() {
     setActiveTab('league');
   };
 
+  const handleImportPlayers = (importedPlayers) => {
+    const result = storageService.importPlayers(importedPlayers);
+    const updatedPlayers = storageService.getPlayers();
+    setPlayers(updatedPlayers);
+    
+    const message = result.duplicates > 0
+      ? `✓ Imported ${result.imported} new player(s), ${result.duplicates} duplicate(s) skipped`
+      : `✓ Successfully imported ${result.imported} player(s)`;
+    alert(message);
+  };
+
+  const handleImportGames = (importedGames) => {
+    const result = storageService.importGames(importedGames);
+    const updatedGames = storageService.getGames();
+    setGames(updatedGames);
+    refresh();
+    
+    const message = result.duplicates > 0
+      ? `✓ Imported ${result.imported} new game(s), ${result.duplicates} duplicate(s) skipped`
+      : `✓ Successfully imported ${result.imported} game(s)`;
+    alert(message);
+  };
+
   return (
     <div className="app">
       <header className="app-header">
@@ -92,7 +115,12 @@ function App() {
           )}
 
           {activeTab === 'players' && (
-            <PlayerForm players={players} onPlayerAdded={handleAddPlayer} />
+            <PlayerForm 
+              players={players} 
+              onPlayerAdded={handleAddPlayer}
+              onPlayersImported={handleImportPlayers}
+              onGamesImported={handleImportGames}
+            />
           )}
         </div>
       </main>

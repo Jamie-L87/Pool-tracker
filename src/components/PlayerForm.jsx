@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { ImportData } from './ImportData';
 import '../styles/PlayerForm.css';
 
-export const PlayerForm = ({ onPlayerAdded, players }) => {
+export const PlayerForm = ({ onPlayerAdded, onPlayersImported, onGamesImported, players }) => {
   const [playerName, setPlayerName] = useState('');
 
   const handleSubmit = (e) => {
@@ -46,6 +47,12 @@ export const PlayerForm = ({ onPlayerAdded, players }) => {
           </ul>
         </div>
       )}
+
+      <ImportData
+        onPlayersImported={onPlayersImported}
+        onGamesImported={onGamesImported}
+        existingPlayers={players}
+      />
     </div>
   );
 };
