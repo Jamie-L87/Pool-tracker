@@ -1,0 +1,9 @@
+player1,player2,winner,winType,date
+John Doe,Jane Smith,John Doe,black,2025-01-05T14:30:00Z
+Jane Smith,Mike Johnson,Jane Smith,black,2025-01-05T15:00:00Z
+Mike Johnson,Sarah Williams,Mike Johnson,foul,2025-01-05T15:45:00Z
+John Doe,Mike Johnson,John Doe,black,2025-01-06T14:00:00Z
+Jane Smith,Sarah Williams,Sarah Williams,black,2025-01-06T14:30:00Z
+Sarah Williams,John Doe,Sarah Williams,default,2025-01-07T19:00:00Z
+Jane Smith,Mike Johnson,Mike Johnson,black,2025-01-07T19:30:00Z
+John Doe,Sarah Williams,John Doe,concede,2025-01-08T14:00:00Z
