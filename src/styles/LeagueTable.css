@@ -1,0 +1,114 @@
+.league-table {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.league-table h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: var(--bg-tertiary);
+  border-bottom: 2px solid var(--border);
+}
+
+table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+table tbody tr {
+  transition: var(--transition);
+}
+
+table tbody tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+table tbody tr.top-three {
+  background-color: rgba(37, 99, 235, 0.1);
+  border-left: 4px solid var(--primary);
+}
+
+table td.rank {
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  min-width: 3rem;
+}
+
+table td.name {
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 150px;
+}
+
+table td.wins {
+  color: var(--success);
+  font-weight: 500;
+}
+
+table td.losses {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+table td.points {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+table td.ppg {
+  color: var(--warning);
+  text-align: right;
+}
+
+table th.rank,
+table th.ppg {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .league-table {
+    padding: 1rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  table th.rank {
+    padding-right: 0.5rem;
+  }
+
+  table td.rank {
+    text-align: center;
+  }
+}

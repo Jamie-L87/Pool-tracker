@@ -1,0 +1,94 @@
+.form-table {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-table h2 {
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.player-form {
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.player-form:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.player-form h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form-badge {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.form-badge.win {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.form-badge.win:hover {
+  background-color: var(--success);
+  color: white;
+  transform: scale(1.1);
+}
+
+.form-badge.loss {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.form-badge.loss:hover {
+  background-color: var(--danger);
+  color: white;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-badge {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,68 @@
+.game-form {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.game-form h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.game-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vs-text {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+}
+
+.game-form button[type='submit'] {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .game-form {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vs-text {
+    padding-bottom: 0;
+    padding-top: 0.5rem;
+  }
+}
