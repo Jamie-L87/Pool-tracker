@@ -27,16 +27,19 @@ export const PlayerForm = ({ onPlayerAdded, onPlayersImported, onGamesImported, 
       <h2>Add New Player</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
+          <label htmlFor="playerName">Player Name</label>
           <input
+            id="playerName"
             type="text"
             placeholder="Enter player name..."
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
             maxLength={50}
           />
-          <button type="submit" className="btn-primary">Add Player</button>
         </div>
+        <button type="submit" className="btn-primary">Add Player</button>
       </form>
+
       {players.length > 0 && (
         <div className="players-list">
           <h3>Current Players ({players.length})</h3>
