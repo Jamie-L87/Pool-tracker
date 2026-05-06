@@ -1,9 +1,9 @@
 .game-form {
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius);
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .game-form h2 {
@@ -19,18 +19,18 @@
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   align-items: flex-end;
 }
 
 @media (max-width: 1200px) {
   .form-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
@@ -73,6 +73,11 @@
   .game-form h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .vs-text {

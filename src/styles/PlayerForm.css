@@ -22,12 +22,11 @@
   display: flex;
   gap: 1rem;
   align-items: flex-end;
-  flex-wrap: wrap;
 }
 
 .player-form input {
   flex: 1;
-  min-width: 150px;
+  min-width: 180px;
 }
 
 .player-form button {
