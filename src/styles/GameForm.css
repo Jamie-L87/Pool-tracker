@@ -34,18 +34,29 @@
   letter-spacing: 0.07em;
 }
 
-.vs-text {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  color: var(--text-secondary);
-  font-weight: 600;
-  padding-bottom: 0.75rem;
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(212, 160, 23, 0.1);
 }
 
 .game-form button[type='submit'] {
   flex-basis: 100%;
   margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
 }
 
 @media (max-width: 500px) {
@@ -61,10 +72,5 @@
 
   .form-group {
     flex: 1 1 100%;
-  }
-
-  .vs-text {
-    padding-bottom: 0;
-    padding-top: 0.5rem;
   }
 }
