@@ -6,6 +6,7 @@ import { useLeagueData } from './hooks/useLeagueData';
 import { LeagueTable } from './components/LeagueTable';
 import { FormTable } from './components/FormTable';
 import { PlayerManager } from './components/PlayerManager';
+import { GameRecorder } from './components/GameRecorder';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -99,6 +100,12 @@ function App() {
 
           <span className="nav-section-label">Manage</span>
           <button
+            className={`nav-btn ${activeTab === 'game' ? 'active' : ''}`}
+            onClick={() => navigate('game')}
+          >
+            <span className="nav-icon">🎱</span> Record Game
+          </button>
+          <button
             className={`nav-btn ${activeTab === 'players' ? 'active' : ''}`}
             onClick={() => navigate('players')}
           >
@@ -116,6 +123,10 @@ function App() {
 
             {activeTab === 'form' && (
               <FormTable players={players} games={games} />
+            )}
+
+            {activeTab === 'game' && (
+              <GameRecorder players={players} onGameRecorded={handleAddGame} />
             )}
 
             {activeTab === 'players' && (
