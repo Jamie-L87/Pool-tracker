@@ -19,9 +19,21 @@
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   align-items: flex-end;
+}
+
+@media (max-width: 1200px) {
+  .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-group {
@@ -52,13 +64,15 @@
   align-self: flex-start;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .game-form {
-    padding: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
+  .game-form h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .vs-text {
