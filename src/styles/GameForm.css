@@ -13,23 +13,17 @@
 
 .game-form form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1.5rem;
-}
-
-.form-grid {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  width: 100%;
+  align-items: flex-start;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 1 1 calc(50% - 0.75rem);
+  min-width: 160px;
 }
 
 .form-group label {
@@ -50,8 +44,8 @@
 }
 
 .game-form button[type='submit'] {
+  flex-basis: 100%;
   margin-top: 0.5rem;
-  align-self: flex-start;
 }
 
 @media (max-width: 500px) {
@@ -65,9 +59,8 @@
     margin-bottom: 1rem;
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .form-group {
+    flex: 1 1 100%;
   }
 
   .vs-text {
