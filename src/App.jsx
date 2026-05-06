@@ -5,6 +5,7 @@ import { storageService } from './services/storage';
 import { useLeagueData } from './hooks/useLeagueData';
 import { LeagueTable } from './components/LeagueTable';
 import { FormTable } from './components/FormTable';
+import { PlayerManager } from './components/PlayerManager';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -96,6 +97,14 @@ function App() {
             <span className="nav-icon">📊</span> Recent Form
           </button>
 
+          <span className="nav-section-label">Manage</span>
+          <button
+            className={`nav-btn ${activeTab === 'players' ? 'active' : ''}`}
+            onClick={() => navigate('players')}
+          >
+            <span className="nav-icon">👥</span> Players
+          </button>
+
 
         </nav>
 
@@ -107,6 +116,10 @@ function App() {
 
             {activeTab === 'form' && (
               <FormTable players={players} games={games} />
+            )}
+
+            {activeTab === 'players' && (
+              <PlayerManager players={players} onPlayerAdded={handleAddPlayer} />
             )}
           </div>
         </main>
