@@ -1,12 +1,12 @@
 // CSV parsing utilities for importing pool tracker data
 
 export const parsePlayersCSV = (csvText) => {
-  const lines = csvText.trim().split('\n');
+  const lines = csvText.replace(/\r\n/g, '\n').trim().split('\n');
   if (lines.length < 2) {
     throw new Error('CSV must have a header row and at least one data row');
   }
 
-  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const headers = lines[0].split(',').map(h => h.trim().toLowerCase()).filter(h => h);
   const nameIndex = headers.indexOf('name');
   const createdAtIndex = headers.indexOf('createdat');
 
@@ -40,12 +40,12 @@ export const parsePlayersCSV = (csvText) => {
 };
 
 export const parseGamesCSV = (csvText, players) => {
-  const lines = csvText.trim().split('\n');
+  const lines = csvText.replace(/\r\n/g, '\n').trim().split('\n');
   if (lines.length < 2) {
     throw new Error('CSV must have a header row and at least one data row');
   }
 
-  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const headers = lines[0].split(',').map(h => h.trim().toLowerCase()).filter(h => h);
   const player1Index = headers.indexOf('player1');
   const player2Index = headers.indexOf('player2');
   const winnerIndex = headers.indexOf('winner');
@@ -109,12 +109,12 @@ export const parseGamesCSV = (csvText, players) => {
 
 // Helper to validate CSV format
 export const validateCSVFormat = (csvText, type) => {
-  const lines = csvText.trim().split('\n');
+  const lines = csvText.replace(/\r\n/g, '\n').trim().split('\n');
   if (lines.length < 2) {
     throw new Error('CSV must have a header row');
   }
 
-  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const headers = lines[0].split(',').map(h => h.trim().toLowerCase()).filter(h => h);
 
   if (type === 'players') {
     if (!headers.includes('name')) {
