@@ -5,8 +5,6 @@ import { storageService } from './services/storage';
 import { useLeagueData } from './hooks/useLeagueData';
 import { LeagueTable } from './components/LeagueTable';
 import { FormTable } from './components/FormTable';
-import { GameForm } from './components/GameForm';
-import { PlayerForm } from './components/PlayerForm';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -98,19 +96,7 @@ function App() {
             <span className="nav-icon">📊</span> Recent Form
           </button>
 
-          <span className="nav-section-label">Manage</span>
-          <button
-            className={`nav-btn ${activeTab === 'game' ? 'active' : ''}`}
-            onClick={() => navigate('game')}
-          >
-            <span className="nav-icon">🎱</span> Record Game
-          </button>
-          <button
-            className={`nav-btn ${activeTab === 'players' ? 'active' : ''}`}
-            onClick={() => navigate('players')}
-          >
-            <span className="nav-icon">👥</span> Players
-          </button>
+
         </nav>
 
         <main className="app-main">
@@ -121,19 +107,6 @@ function App() {
 
             {activeTab === 'form' && (
               <FormTable players={players} games={games} />
-            )}
-
-            {activeTab === 'game' && (
-              <GameForm players={players} onGameAdded={handleAddGame} />
-            )}
-
-            {activeTab === 'players' && (
-              <PlayerForm 
-                players={players} 
-                onPlayerAdded={handleAddPlayer}
-                onPlayersImported={handleImportPlayers}
-                onGamesImported={handleImportGames}
-              />
             )}
           </div>
         </main>
