@@ -36,8 +36,9 @@
 
 .import-tab.active {
   background-color: var(--primary);
-  color: white;
+  color: #0c2e12;
   border-color: var(--primary);
+  font-weight: 600;
 }
 
 .import-section {
@@ -61,15 +62,15 @@
   border-radius: var(--border-radius);
   text-align: center;
   cursor: pointer;
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: rgba(212, 160, 23, 0.05);
   color: var(--primary);
   font-weight: 500;
   transition: var(--transition);
 }
 
 .file-label:hover {
-  background-color: rgba(37, 99, 235, 0.1);
-  border-color: var(--primary);
+  background-color: rgba(212, 160, 23, 0.12);
+  border-color: var(--primary-dark);
 }
 
 .file-input:disabled + .file-label {

@@ -31,11 +31,11 @@
 }
 
 .form-group label {
-  font-weight: 500;
-  color: var(--text-primary);
-  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
 }
 
 .vs-text {

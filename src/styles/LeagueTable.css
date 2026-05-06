@@ -50,7 +50,7 @@ table tbody tr:hover {
 }
 
 table tbody tr.top-three {
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: rgba(212, 160, 23, 0.08);
   border-left: 4px solid var(--primary);
 }
 
@@ -68,12 +68,12 @@ table td.name {
 }
 
 table td.wins {
-  color: var(--success);
+  color: var(--primary);      /* Yellow ball */
   font-weight: 500;
 }
 
 table td.losses {
-  color: var(--danger);
+  color: var(--danger);       /* Red ball */
   font-weight: 500;
 }
 
@@ -83,7 +83,7 @@ table td.points {
 }
 
 table td.ppg {
-  color: var(--warning);
+  color: var(--text-secondary);
   text-align: right;
 }
 

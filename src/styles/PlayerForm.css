@@ -55,7 +55,7 @@
 }
 
 .players-list li:hover {
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: rgba(212, 160, 23, 0.1);
   border-color: var(--primary);
   color: var(--text-primary);
 }

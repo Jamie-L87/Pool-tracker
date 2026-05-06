@@ -12,6 +12,7 @@ function App() {
   const [players, setPlayers] = useState([]);
   const [games, setGames] = useState([]);
   const [activeTab, setActiveTab] = useState('league');
+  const [navOpen, setNavOpen] = useState(false);
   const { standings, refresh } = useLeagueData();
 
 
@@ -64,66 +65,79 @@ function App() {
     alert(message);
   };
 
+  const navigate = (tab) => {
+    setActiveTab(tab);
+    setNavOpen(false);
+  };
+
   return (
     <div className="app">
       <header className="app-header">
-        <div className="header-content">
-          <h1>🎱 Pool Tracker</h1>
-          <p className="subtitle">Track player rankings and game results</p>
-        </div>
+        <button className="nav-toggle" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle menu">
+          {navOpen ? '✕' : '☰'}
+        </button>
+        <h1>🎱 Pool Tracker</h1>
+        <p className="subtitle">Track player rankings and game results</p>
       </header>
 
-      <nav className="app-nav">
-        <button
-          className={`nav-btn ${activeTab === 'league' ? 'active' : ''}`}
-          onClick={() => setActiveTab('league')}
-        >
-          League Table
-        </button>
-        <button
-          className={`nav-btn ${activeTab === 'form' ? 'active' : ''}`}
-          onClick={() => setActiveTab('form')}
-        >
-          Recent Form
-        </button>
-        <button
-          className={`nav-btn ${activeTab === 'game' ? 'active' : ''}`}
-          onClick={() => setActiveTab('game')}
-        >
-          Record Game
-        </button>
-        <button
-          className={`nav-btn ${activeTab === 'players' ? 'active' : ''}`}
-          onClick={() => setActiveTab('players')}
-        >
-          Players
-        </button>
-      </nav>
+      <div className="app-body">
+        <div className={`nav-overlay ${navOpen ? 'open' : ''}`} onClick={() => setNavOpen(false)} />
 
-      <main className="app-main">
-        <div className="container">
-          {activeTab === 'league' && (
-            <LeagueTable standings={standings} />
-          )}
+        <nav className={`app-nav ${navOpen ? 'open' : ''}`}>
+          <span className="nav-section-label">Overview</span>
+          <button
+            className={`nav-btn ${activeTab === 'league' ? 'active' : ''}`}
+            onClick={() => navigate('league')}
+          >
+            <span className="nav-icon">🏆</span> League Table
+          </button>
+          <button
+            className={`nav-btn ${activeTab === 'form' ? 'active' : ''}`}
+            onClick={() => navigate('form')}
+          >
+            <span className="nav-icon">📊</span> Recent Form
+          </button>
 
-          {activeTab === 'form' && (
-            <FormTable players={players} games={games} />
-          )}
+          <span className="nav-section-label">Manage</span>
+          <button
+            className={`nav-btn ${activeTab === 'game' ? 'active' : ''}`}
+            onClick={() => navigate('game')}
+          >
+            <span className="nav-icon">🎱</span> Record Game
+          </button>
+          <button
+            className={`nav-btn ${activeTab === 'players' ? 'active' : ''}`}
+            onClick={() => navigate('players')}
+          >
+            <span className="nav-icon">👥</span> Players
+          </button>
+        </nav>
 
-          {activeTab === 'game' && (
-            <GameForm players={players} onGameAdded={handleAddGame} />
-          )}
+        <main className="app-main">
+          <div className="container">
+            {activeTab === 'league' && (
+              <LeagueTable standings={standings} />
+            )}
 
-          {activeTab === 'players' && (
-            <PlayerForm 
-              players={players} 
-              onPlayerAdded={handleAddPlayer}
-              onPlayersImported={handleImportPlayers}
-              onGamesImported={handleImportGames}
-            />
-          )}
-        </div>
-      </main>
+            {activeTab === 'form' && (
+              <FormTable players={players} games={games} />
+            )}
+
+            {activeTab === 'game' && (
+              <GameForm players={players} onGameAdded={handleAddGame} />
+            )}
+
+            {activeTab === 'players' && (
+              <PlayerForm 
+                players={players} 
+                onPlayerAdded={handleAddPlayer}
+                onPlayersImported={handleImportPlayers}
+                onGamesImported={handleImportGames}
+              />
+            )}
+          </div>
+        </main>
+      </div>
 
       <footer className="app-footer">
         <p>&copy; 2026 Pool Tracker. Track your games and climb the rankings!</p>

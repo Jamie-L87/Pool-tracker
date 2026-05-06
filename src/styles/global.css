@@ -1,17 +1,19 @@
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1e40af;
-  --success: #10b981;
-  --danger: #ef4444;
-  --warning: #f59e0b;
-  --bg-dark: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --border: #475569;
+  /* UK Pool Table colours */
+  --primary: #d4a017;         /* Yellow ball */
+  --primary-dark: #a67c00;    /* Deep yellow */
+  --success: #d4a017;         /* Wins - yellow */
+  --danger: #c0392b;          /* Red ball */
+  --warning: #e67e22;         /* Orange accent */
+  --bg-dark: #0c2e12;         /* Deep table felt green */
+  --bg-secondary: #163d1c;    /* Table felt green */
+  --bg-tertiary: #1e5226;     /* Lighter felt */
+  --sidebar-bg: #0a1f0c;      /* Very dark green - cushion rail */
+  --text-primary: #f0ece0;    /* Cream/ivory - cue ball */
+  --text-secondary: #a8cdb0;  /* Muted green-white */
+  --border: #2d6e38;          /* Mid green border */
   --border-radius: 0.5rem;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   --transition: all 0.3s ease;
 }
 
@@ -62,12 +64,12 @@ h3 {
 /* Button Styles */
 .btn-primary {
   background-color: var(--primary);
-  color: white;
+  color: #0c2e12;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--shadow);
@@ -76,7 +78,7 @@ h3 {
 .btn-primary:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 12px rgba(212, 160, 23, 0.4);
 }
 
 .btn-primary:disabled {

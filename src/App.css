@@ -7,99 +7,136 @@
 
 /* Header */
 .app-header {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, #0a1f0c 0%, #163d1c 100%);
   color: white;
-  padding: 2rem 0;
+  padding: 1.5rem 2rem;
   box-shadow: var(--shadow);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  border-bottom: 3px solid var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .app-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: white;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+  color: var(--primary);
+  letter-spacing: 0.02em;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-left: auto;
 }
 
-/* Navigation */
-.app-nav {
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+/* Body layout: sidebar + content */
+.app-body {
   display: flex;
-  gap: 0;
-  padding: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  flex-wrap: wrap;
+  flex: 1;
+}
+
+/* Sidebar Navigation */
+.app-nav {
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--sidebar-bg);
+  border-right: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  gap: 0.25rem;
   position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  top: 71px; /* height of header */
+  height: calc(100vh - 71px);
+  overflow-y: auto;
+}
+
+.nav-section-label {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--border);
+  margin-top: 0.5rem;
 }
 
 .nav-btn {
-  flex: 1;
-  min-width: 150px;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
   border: none;
   background: none;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
-  border-bottom: 3px solid transparent;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  text-align: left;
 }
 
 .nav-btn:hover {
   color: var(--text-primary);
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: rgba(212, 160, 23, 0.08);
+  border-left-color: rgba(212, 160, 23, 0.4);
 }
 
 .nav-btn.active {
   color: var(--primary);
-  border-bottom-color: var(--primary);
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: rgba(212, 160, 23, 0.12);
+  border-left-color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-btn .nav-icon {
+  font-size: 1.1rem;
+  width: 1.4rem;
+  text-align: center;
 }
 
 /* Main Content */
 .app-main {
   flex: 1;
-  padding: 2rem 0;
+  padding: 2rem;
+  overflow-y: auto;
+  min-width: 0;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 1000px;
 }
 
 /* Footer */
 .app-footer {
-  background-color: var(--bg-secondary);
+  background-color: var(--sidebar-bg);
   border-top: 1px solid var(--border);
-  padding: 2rem;
+  padding: 1rem 2rem;
   text-align: center;
   color: var(--text-secondary);
-  margin-top: auto;
+  font-size: 0.85rem;
 }
 
 .app-footer p {
   margin: 0;
+}
+
+/* Mobile toggle button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 /* Responsive */
@@ -116,45 +153,53 @@
     font-size: 0.95rem;
   }
 
-  .header-content {
-    padding: 0 1rem;
+/* Responsive - collapse sidebar to overlay on mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
   }
 
-  .app-nav {
-    gap: 0;
+  .app-header {
+    padding: 1rem 1.5rem;
   }
 
-  .nav-btn {
-    min-width: 0;
-    padding: 0.75rem 0.5rem;
-    font-size: 0.75rem;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  .app-main {
-    padding: 1.5rem 0;
-  }
-
-  .app-footer {
-    padding: 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
   .app-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .subtitle {
-    font-size: 0.85rem;
+    display: none;
   }
 
-  .nav-btn {
-    padding: 0.75rem 0.25rem;
-    font-size: 0.7rem;
+  .app-nav {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 240px;
+    height: 100vh;
+    z-index: 30;
+    padding-top: 4rem;
+    transition: left 0.3s ease;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .app-nav.open {
+    left: 0;
+  }
+
+  .app-main {
+    padding: 1.5rem;
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 25;
+  }
+
+  .nav-overlay.open {
+    display: block;
   }
 }

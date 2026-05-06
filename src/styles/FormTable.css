@@ -26,7 +26,7 @@
 
 .player-form:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
 }
 
 .player-form h3 {
@@ -57,14 +57,14 @@
 }
 
 .form-badge.win {
-  background-color: rgba(16, 185, 129, 0.2);
-  color: var(--success);
-  border-color: var(--success);
+  background-color: rgba(212, 160, 23, 0.15);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .form-badge.win:hover {
-  background-color: var(--success);
-  color: white;
+  background-color: var(--primary);
+  color: #0c2e12;
   transform: scale(1.1);
 }
 
