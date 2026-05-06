@@ -13,14 +13,17 @@
 
 .player-form form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
+  align-items: flex-end;
 }
 
 .player-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
+  min-width: 180px;
 }
 
 .player-form input {
@@ -40,9 +43,9 @@
 }
 
 .player-form button {
-  align-self: flex-start;
   padding: 0.75rem 1.5rem;
-  margin-top: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .players-list {

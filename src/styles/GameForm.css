@@ -13,20 +13,25 @@
 
 .game-form form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  align-items: flex-end;
 }
 
 .form-grid {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
+  align-items: flex-end;
+  width: 100%;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
+  min-width: 140px;
 }
 
 .form-group label {
